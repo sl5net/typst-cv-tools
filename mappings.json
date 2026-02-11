@@ -1,0 +1,44 @@
+{
+  "entries": [
+    {
+      "keys": ["civil-service", "zivildienst", "civilservice"],
+      "label": "Zivildienst",
+      "priority": 50
+    },
+    {
+      "keys": ["social-care", "socialcare", "sozialbetreuung"],
+      "label": "Sozialbetreuung",
+      "priority": 40
+    },
+    {
+      "keys": ["non-profit", "nonprofit", "gemeinnuetzig"],
+      "label": "Non‑Profit",
+      "priority": 30
+    },
+    {
+      "keys": ["disability-support", "disability", "behinderung"],
+      "label": "Unterstützung für Menschen mit Behinderung",
+      "priority": 45
+    },
+    {
+      "keys": ["agile", "scrum", "kanban"],
+      "label": "Agile Methoden",
+      "priority": 60
+    },
+    {
+      "keys": ["jira"],
+      "label": "Jira",
+      "priority": 20
+    },
+    {
+      "keys": ["vhs", "dozent", "lehre", "pädagogik", "pedagogy", "teaching"],
+      "label": "Lehre & Didaktik",
+      "priority": 35
+    },
+    {
+      "keys": ["it", "software", "developer", "entwickler"],
+      "label": "IT & Softwareentwicklung",
+      "priority": 55
+    }
+  ]
+}

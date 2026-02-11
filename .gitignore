@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Backups and generated metadata
+*.bak
+
+# ignore any path containing a space
+* *
+
+avatar.png
+signature.png
+metadata.toml.bak
+# header_quote.typst
+
+# Typst / build outputs
+*.pdf
+*.typstcache
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+*.swp
