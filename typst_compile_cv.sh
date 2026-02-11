@@ -51,6 +51,43 @@ mkdir -p exports/$TAGS_CLEAN
 OUTPUT="exports/$TAGS_CLEAN/Lebenslauf_Lauffer.pdf"
 
 
+
+
+
+
+
+METADATA="metadata.toml"
+BACKUP="${METADATA}.bak"
+
+# Wenn metadata.toml existiert und exakt die Zeile first_name = "first_name" enthält,
+# dann restore aus metadata.toml.bak (falls vorhanden).
+if [ -f "$METADATA" ] && grep -qE '^[[:space:]]*first_name[[:space:]]*=[[:space:]]*"[[:space:]]*first_name[[:space:]]*"[[:space:]]*$' "$METADATA"; then
+  if [ -f "$BACKUP" ]; then
+    echo "Detected placeholder first_name in $METADATA — restoring from $BACKUP"
+    cp -- "$BACKUP" "$METADATA"
+    echo "Restored $METADATA from backup."
+  else
+    echo "Placeholder detected but backup $BACKUP not found; proceeding without restore." >&2
+  fi
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ./build_header.sh "$TAGS_CLEAN" "./metadata.toml"
 ./build_header.sh "$TAGS_CLEAN" "./metadata.toml" "./mappings.json"
 

@@ -17,6 +17,8 @@ import sys
 import re
 from pathlib import Path
 
+# prehook_personal_placeholders.py:20
+
 KV_RE = re.compile(r'^(\s*)([A-Za-z0-9_\-]+)\s*=\s*([\'"])(.*?)(\3)(\s*(#.*)?)?$')
 TABLE_RE = re.compile(r'^\s*\[([^\]]+)\]\s*$')
 
@@ -26,6 +28,7 @@ def is_personal_table(table_name):
     parts = table_name.split('.')
     return any(part.strip().lower() == 'personal' for part in parts)
 
+# prehook_personal_placeholders.py:29
 def process(path: Path):
     text = path.read_text(encoding='utf-8')
     lines = text.splitlines()
@@ -52,6 +55,44 @@ def process(path: Path):
 
     # Backup and write
     bak = path.with_suffix(path.suffix + ".bak")
+
+    # Probe: if the original contains the placeholder last_name = "last_name"
+    # then DO NOT create a backup, because backup should contain real data.
+    probe_pattern = r'^[[:space:]]*last_name[[:space:]]*=[[:space:]]*["\']last_name["\'][[:space:]]*$'
+
+    # Read original text for checking (we already have 'text')
+    import re
+    # Use Python regex: convert the POSIX-like pattern to Python
+    probe_re = re.compile(r'^\s*last_name\s*=\s*["\']last_name["\']\s*$', re.MULTILINE)
+
+    if probe_re.search(text):
+        # original already contains placeholder -> do not create backup
+        print(f"Note: placeholder last_name = 'last_name' detected in {path}; skipping backup creation.")
+
+        print(' => exit... idk... maybe more secure')
+        sys.exit(0)
+
+    else:
+        # create backup with the original (real) data
+        bak.write_bytes(path.read_bytes())
+        print(f"Created backup: {bak}")
+
+    # Write the masked/modified content to the original file
+    path.write_text("\n".join(out) + "\n", encoding='utf-8')
+    print(f"Updated {path}")
+
+
+
+
+
+
+
+
+
+
+
+
+
     bak.write_bytes(path.read_bytes())
     path.write_text("\n".join(out) + "\n", encoding='utf-8')
     print(f"Updated {path} (backup: {bak})")

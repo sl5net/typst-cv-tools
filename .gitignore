@@ -12,6 +12,10 @@ __pycache__/
 
 avatar.png
 signature.png
+
+# temporarily 11.2.'26 19:39 Wed
+# please check in source where metadata.toml.bak will greated... and check how you can restorre if you have time. hf gl
+metadata.toml
 metadata.toml.bak
 # header_quote.typst
 
