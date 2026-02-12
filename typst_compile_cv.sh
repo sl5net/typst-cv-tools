@@ -54,8 +54,6 @@ OUTPUT="exports/$TAGS_CLEAN/Lebenslauf_Lauffer.pdf"
 
 
 
-
-
 METADATA="metadata.toml"
 BACKUP="${METADATA}.bak"
 
@@ -77,25 +75,16 @@ fi
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # ./build_header.sh "$TAGS_CLEAN" "./metadata.toml"
 ./build_header.sh "$TAGS_CLEAN" "./metadata.toml" "./mappings.json"
 
 
 # 5. Typst ausführen
-echo 'command with regex-filter: typst compile cv.typ --input filter="..." "$OUTPUT"'
+echo 'command with regex-filter: typst compile cv.typ --input filter="..." "$OUTPUT" --input show_stack="true"'
+
+
 echo $SORTED_UNIQUE
-typst compile cv.typ --input filter="$SORTED_UNIQUE" "$OUTPUT"
+typst compile cv.typ --input filter="$SORTED_UNIQUE" "$OUTPUT" --input show_stack="true"
 
 echo "----------------------------------------"
 echo "✅ PDF erfolgreich erstellt:"
