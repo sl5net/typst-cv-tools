@@ -1,7 +1,42 @@
 #!/bin/bash
-
 # Beispielaufruf:
 # ./typst_compile_cv.sh "Social|it|edu-it|SQL|AI|Java|PHP|API|PostgreSQL|Docker|Laravel|Vue|AI"
+
+
+
+# Try find out if show_stack should set True.
+# Example keywords (tweak as needed)
+keywordsIT=( "IT" "informatics" "python" "java" "javascript" "js" "php" "c\+\+" "cpp" "devops" "ci" "linux" "security" "database" "postgresql" "db2" "matlab" "embedded" "automation" "ai" "llm" "rag" "architecture" "scripting" )
+
+# Join into a single alternation regex, anchor with word boundaries.
+# We escape any slashes/newlines, and make it case-insensitive later.
+regex="\b($(IFS='|'; echo "${keywordsIT[*]}"))\b"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 FILTER=$1
 
@@ -72,6 +107,15 @@ fi
 
 
 
+# Use grep -E -i; it understands \b (word boundary) only in GNU grep with -P or with GNU's -E? Safer to use grep -P if available.
+if printf '%s\n' "$SORTED_UNIQUE" | grep -Piq "$regex"; then
+  show_stack="true"
+else
+  show_stack="false"
+fi
+
+
+
 
 
 
@@ -80,11 +124,11 @@ fi
 
 
 # 5. Typst ausführen
-echo 'command with regex-filter: typst compile cv.typ --input filter="..." "$OUTPUT" --input show_stack="true"'
+echo 'command with regex-filter: typst compile cv.typ --input filter="..." "$OUTPUT" --input show_stack="$show_stack"'
 
 
 echo $SORTED_UNIQUE
-typst compile cv.typ --input filter="$SORTED_UNIQUE" "$OUTPUT" --input show_stack="true"
+typst compile cv.typ --input filter="$SORTED_UNIQUE" "$OUTPUT" --input show_stack="$show_stack"
 
 echo "----------------------------------------"
 echo "✅ PDF erfolgreich erstellt:"

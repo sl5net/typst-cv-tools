@@ -38,7 +38,7 @@
     [Mitarbeit im 9-köpfigen Scrum-Team an Fintech-Lösungen.],
     [Übernahme voller Verantwortung für zugewiesene Aufgaben in einem agilen Umfeld.]
   ),
-  tags: ("Scrum", "Agile", "Fintech")
+  tags: ("Scrum", "Agile", "Fintech", "Node", "JS", "JavaScript", "Next.js", "ReactJS", "PostgreSQL")
 )
 
 

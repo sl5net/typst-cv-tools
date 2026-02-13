@@ -14,9 +14,10 @@
   description: list(
     [Diplomarbeit (Note 1,7): "Konzepte zur Integration von Business-Daten in Office-Software mit SAP" (bei IBM SAP International Competence Center)],
     [2003 – 2005: Studium der Angewandten Informatik (48/120 LP) | Universität Heidelberg],
+    [2002 – 2003: Wissenschaftliches Rechnen | Universität Heidelberg],
     [Studienschwerpunkte: Software-Qualitätssicherung, Anwendungsentwicklung, Datenbanken]
   ),
-  tags: ("edu_it", "IT", "Architecture", "education")
+  tags: ("edu_it", "IT", "Architecture", "education","IBM","SAP","Matlab","Java","C++","DB2","PostgreSQL")
 )
 
 #cv-entry(
@@ -36,7 +37,8 @@
   society: [Ferdinand-von-Steinbeis-Schule],
   date: [1991 - 1994],
   location: [Reutlingen, DE],
-  tags: ("edu_it", "education")
+  description: list([Fundament der Informatik und anderer technischer Fächer.]),
+  tags: ("edu_it", "education","Delphi","Digitaltechnik")
 )
 
 #cv-entry(
@@ -45,6 +47,6 @@
   date: [1989 - 1991],
   location: [Reutlingen, DE],
   description: list([Fundament der elektrischen Energietechnik und industriellen Elektronik.]),
-  tags: ("EE", "Hardware")
+  tags: ("edu_it", "EE", "Hardware", "GW-BASIC", "QuickBasic")
 )
 
