@@ -113,8 +113,8 @@ echo "----------------------------------------"
 echo "✅ PDF erfolgreich erstellt:"
 echo "📂 $OUTPUT_CV"
 echo "----------------------------------------"
-
-okular "$OUTPUT_CV"
+echo "okular $OUTPUT_CV"
+okular $OUTPUT_CV
 
 kate $cv_data_file
 

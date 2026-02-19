@@ -23,7 +23,8 @@ typst compile cover_letter.typ \
 
 if [ $? -eq 0 ]; then
     echo "✅ PDF erfolgreich erstellt: $OUTPUT_FILE"
-    okular $OUTPUT_CV
+    echo "okular $OUTPUT_FILE"
+    okular $OUTPUT_FILE
 else
     echo "❌ Fehler beim Erstellen des PDFs."
 fi
