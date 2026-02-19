@@ -1,5 +1,6 @@
 #:schema https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/metadata.toml.schema.json
 
+# metadata.toml
 # Set the output language
 # INFO: value must matches folder suffix; i.e "zh" -> "./modules_zh"
 language = "de"
@@ -51,6 +52,7 @@ language = "de"
         # Decide if you want to display the footer or not
         display_footer = true
 
+subject = ''
 
 [inject]
     # Decide if you want to inject AI prompt or not
@@ -61,30 +63,30 @@ language = "de"
     injected_keywords_list = ["Data Analyst", "GCP", "Python", "SQL", "Tableau"]
 
 [personal]
-    first_name = "first_name"
-    last_name = "last_name"
+    first_name = "Sebastian"
+    last_name = "Lauffer"
 
     # The order of this section will affect how the entries are displayed
     # The custom value is for any additional information you want to add, name it as custom-1, custom-2, etc.
     [personal.info]
-        github = "github"
-        phone = "phone"
-        email = "email"
-        linkedin = "linkedin"
-        gitlab = "gitlab"
-        homepage = "homepage"
+        github = "sl5net"
+        phone = "+49 7121 75308-09"
+        email = "sebastian@sl5.de"
+        linkedin = "sebastian-lauffer-a065496b"
+        gitlab = "sl5net"
+        homepage = "sl5.de"
         # orcid = "0000-0000-0000-0000"
         # researchgate = "John-Doe"
-        location = "location"
-        extraInfo = "extraInfo"
-        
+        location = "Reutlingen, DE"
+        extraInfo = "Available for work"
+
         # Custom info with awesome icon
         [personal.info.custom-1]
             # image = "" # Example: image("./path/to/image.png")
-            awesomeIcon = "awesomeIcon" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
-            text = "text"
-            link = "link"
-            
+            awesomeIcon = "graduation-cap" # Example: "graduation-cap" see https://typst.app/universe/package/fontawesome/
+            text = "Diplominformatiker (FH)"
+            link = "https://www.sl5.de"
+
         # Custom info with image icon
         [personal.info.custom-2]
             # image = image("./path/to/custom-icon.png") # Custom image icon
@@ -95,7 +97,7 @@ language = "de"
 #            awesomeIcon = "certificate"
 #            text = "AWS Certified"
 #            link = "https://aws.amazon.com/certification/"
-            
+
         # Linebreak example - adds a line break in header info
         # linebreak = ""
 

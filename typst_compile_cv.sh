@@ -2,6 +2,9 @@
 # Beispielaufruf:
 # ./typst_compile_cv.sh "Social|it|edu-it|SQL|AI|Java|PHP|API|PostgreSQL|Docker|Laravel|Vue|AI"
 
+cv_data_file="filtered_cv_data.txt"  # Hier sollten die gefilterten CV-Daten liegen
+job_ad_file="job_ad.txt"              # Hier liegt die Stellenanzeige
+output_prompt_file="cover_letter_prompt.txt" # Ausgabe-Datei für den generierten Prompt
 
 
 # Try find out if show_stack should set True.
@@ -11,31 +14,6 @@ keywordsIT=( "IT" "informatics" "python" "java" "javascript" "js" "php" "c\+\+" 
 # Join into a single alternation regex, anchor with word boundaries.
 # We escape any slashes/newlines, and make it case-insensitive later.
 regex="\b($(IFS='|'; echo "${keywordsIT[*]}"))\b"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 FILTER=$1
@@ -83,7 +61,8 @@ mkdir -p exports
 mkdir -p exports/$TAGS_CLEAN
 
 # 4. Dateiname generieren
-OUTPUT="exports/$TAGS_CLEAN/Lebenslauf_Lauffer.pdf"
+OUTPUT_CV="exports/$TAGS_CLEAN/Lebenslauf_Lauffer.pdf"
+OUTPUT_LETTER_txt="exports/$TAGS_CLEAN/Anschreiben_Lauffer.txt"
 
 
 
@@ -124,15 +103,35 @@ fi
 
 
 # 5. Typst ausführen
-echo 'command with regex-filter: typst compile cv.typ --input filter="..." "$OUTPUT" --input show_stack="$show_stack"'
+echo 'command with regex-filter: typst compile cv.typ --input filter="..." "$OUTPUT_CV" --input show_stack="$show_stack"'
 
 
 echo $SORTED_UNIQUE
-typst compile cv.typ --input filter="$SORTED_UNIQUE" "$OUTPUT" --input show_stack="$show_stack"
+typst compile cv.typ --input filter="$SORTED_UNIQUE" "$OUTPUT_CV" --input show_stack="$show_stack"
 
 echo "----------------------------------------"
 echo "✅ PDF erfolgreich erstellt:"
-echo "📂 $OUTPUT"
+echo "📂 $OUTPUT_CV"
 echo "----------------------------------------"
 
-okular $OUTPUT
+okular "$OUTPUT_CV"
+
+kate $cv_data_file
+
+# experimental:
+
+# Anschreiben generieren (mit Prompt-Parameter)
+#OUTPUT_LETTER="exports/$TAGS_CLEAN/Lebenslauf_Anschreiben.pdf"
+#typst compile cv.typ --input its_cover_letter_prompt="1" "$OUTPUT_LETTER" --input show_stack="$show_stack"
+
+# PDFs öffnen
+#okular "$OUTPUT_LETTER"
+
+#okular $OUTPUT_CV
+
+kate $OUTPUT_LETTER_txt
+
+# Nach der PDF-Generierung:
+echo "Generiere Prompt für das Anschreiben..."
+./gen_cover_letter_prompt.sh "$SORTED_UNIQUE"
+
