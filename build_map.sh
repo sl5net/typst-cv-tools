@@ -329,11 +329,29 @@ mkdir -p "$MAPPE_DIR"
 log_step "Schritt 4: Bewerbungsmappe → $MAPPE_DIR"
 
 # ══════════════════════════════════════════════════════════════════════
-# SCHRITT 5: Anschreiben kompilieren
+# SCHRITT 5: Anschreiben kompilieren TODO must use txt from MAPPE_DIR
 # @ in E-Mail-Adressen für Typst escapen
-ESCAPED_LETTER=$(mktemp --tmpdir=. --suffix=.txt)
+#ESCAPED_LETTER=$(mktemp --tmpdir=. --suffix=.txt)
+
+ESCAPED_LETTER=$(mktemp --tmpdir="$MAPPE_DIR" --suffix=.txt)
+
+# kate $ESCAPED_LETTER # ist leer
+
+
+LETTER_TXT="${MAPPE_DIR%/}/Anschreiben_Lauffer.txt"
+
 sed 's/@/\\@/g' "$LETTER_TXT" > "$ESCAPED_LETTER"
+
+# kate $ESCAPED_LETTER # ist leer
+# exit
+
+
+
+cp -f -- "$ESCAPED_LETTER" "./Anschreiben_Lauffer.txt"
+
+
 trap "rm -f \"$ESCAPED_LETTER\"" EXIT
+
 # ══════════════════════════════════════════════════════════════════════
 log_step "Schritt 5: Anschreiben kompilieren"
 
@@ -343,6 +361,10 @@ typst compile cover_letter.typ \
   --input file="$ESCAPED_LETTER" \
   --input quote="Bewerbung als XXXXXXXX" \
   "$LETTER_PDF_FINAL"
+
+
+
+
 
 if [ $? -eq 0 ]; then
   log_ok "Anschreiben PDF: $LETTER_PDF_FINAL"
