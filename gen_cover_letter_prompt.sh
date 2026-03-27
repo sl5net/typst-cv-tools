@@ -34,12 +34,14 @@ cat > "$output_prompt_file" <<EOL
 - Focus on the keywords: $keywords.
 
 **My Background (Resume Data):**
-$(cat "$cv_data_file")
+$(grep -v "@" "$cv_data_file")
 
 **The Job (Requirement):**
 $(cat "$job_ad_file")
 
 **Instructions:**
+- Start with the Company-Address if available
+ Do NOT include any of my contact information (name, email, phone, address, homepage, GitHub, GitLab). The header is added automatically by the template!
 - Connect my specific experience to the job requirements.
 - Keep it under 1 page.
 - Be concise and professional.

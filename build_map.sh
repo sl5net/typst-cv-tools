@@ -1,4 +1,6 @@
 #!/bin/bash
+clear;
+
 export LC_ALL=de_DE.UTF-8
 export LANG=de_DE.UTF-8
 # ╔══════════════════════════════════════════════════════════════════════╗
@@ -328,13 +330,17 @@ log_step "Schritt 4: Bewerbungsmappe → $MAPPE_DIR"
 
 # ══════════════════════════════════════════════════════════════════════
 # SCHRITT 5: Anschreiben kompilieren
+# @ in E-Mail-Adressen für Typst escapen
+ESCAPED_LETTER=$(mktemp --tmpdir=. --suffix=.txt)
+sed 's/@/\\@/g' "$LETTER_TXT" > "$ESCAPED_LETTER"
+trap "rm -f \"$ESCAPED_LETTER\"" EXIT
 # ══════════════════════════════════════════════════════════════════════
 log_step "Schritt 5: Anschreiben kompilieren"
 
 LETTER_PDF_FINAL="${MAPPE_DIR}/${LETTER_FILENAME}"
 
 typst compile cover_letter.typ \
-  --input file="$LETTER_TXT" \
+  --input file="$ESCAPED_LETTER" \
   --input quote="Bewerbung als XXXXXXXX" \
   "$LETTER_PDF_FINAL"
 
@@ -479,12 +485,14 @@ echo -e "${C_BOLD}${C_YELLOW}│  3. Dann hier Enter drücken                   
 echo -e "${C_BOLD}${C_YELLOW}└──────────────────────────────────────────────────────────────┘${C_RESET}"
 read -rp "  ➡  Gemini-Text in ${LETTER_TXT} eingefügt? [Enter zum Fortfahren] "
 
-# ── Schritt 8: Finales Anschreiben-PDF kompilieren ───────────────────
+# Schritt 8: Finales Anschreiben-PDF kompilieren
+# Escaped-Kopie neu erstellen (User hat Text geändert)
+sed 's/@/\\@/g' "$LETTER_TXT" > "$ESCAPED_LETTER"
 log_step "Schritt 8: Finales Anschreiben-PDF kompilieren"
 
 LETTER_PDF_FINAL="${MAPPE_DIR}/${LETTER_FILENAME}"
 typst compile cover_letter.typ \
-  --input file="$LETTER_TXT" \
+  --input file="$ESCAPED_LETTER" \
   --input quote="Bewerbung als XXXXXXXX" \
   "$LETTER_PDF_FINAL"
 

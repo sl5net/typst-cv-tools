@@ -149,8 +149,13 @@ echo ""
 echo -e "${C_BLUE}📄 Lese Text aus:${C_RESET} $INPUT_FILE"
 echo -e "${C_BLUE}🔨 Generiere Anschreiben-PDF…${C_RESET}"
 
+# @ in E-Mail-Adressen für Typst escapen
+ESCAPED_INPUT=$(mktemp --tmpdir=. --suffix=.txt)
+sed "s/@/\\\\@/g" "$INPUT_FILE" > "$ESCAPED_INPUT"
+trap "rm -f \"$ESCAPED_INPUT\"" EXIT
+
 typst compile cover_letter.typ \
-  --input file="$INPUT_FILE" \
+  --input file="$ESCAPED_INPUT" \
   --input quote="Bewerbung als XXXXXXXX" \
   "$OUTPUT_PDF_FINAL"
 
