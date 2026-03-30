@@ -587,7 +587,8 @@ else
   echo -e "${C_BOLD}${C_CYAN}└────────────────────────────────────────────────────────────────┘${C_RESET}"
   echo ""
 
-  read -rp "  Eintrag in Datenbank speichern? [j/N] " DB_CONFIRM
+  read -rp "  Eintrag in Datenbank speichern? [j or Enter / N] " DB_CONFIRM
+  DB_CONFIRM=${DB_CONFIRM:-J}   # bei leerer Eingabe -> 'J'
   if [[ "$DB_CONFIRM" =~ ^[jJyY]$ ]]; then
     echo -e "  ${C_GRAY}▶ Führe aus:${C_RESET}"
     echo -e "  ${C_GRAY}  bash "$ADD_SH" \\${C_RESET}"
