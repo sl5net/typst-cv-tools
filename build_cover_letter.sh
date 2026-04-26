@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# build_cover_letter.sh
 # Default: Wenn kein Dateiname angegeben ist, suche nach "anschreiben.txt"
 INPUT_FILE="${1:-Anschreiben_Lauffer.txt}"
 OUTPUT_FILE="${2:-Anschreiben_Lauffer.pdf}"

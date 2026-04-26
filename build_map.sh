@@ -436,8 +436,18 @@ TON & STIL
 - Sachlich, direkt, professionell – kein übertriebenes Hochglanz-Bewerbungssprech
 - Keine Floskeln wie \"hiermit bewerbe ich mich\" oder \"mit großer Begeisterung\"
 - Konkret: Was kann ich, was passt zur Stelle – fertig
+- Unterscheide strikt zwischen aktuellen Kern-Skills und historischem bzw grundsätzlichem Verständnis.
+- Erfinde NIEMALS Kenntnisse oder Sprachen, die nicht explizit in meinen Daten stehen, auch wenn die Anzeige sie fordert.
+- Falls eine geforderte Sprache (z. B. Csharp) nicht explizit mit aktueller Erfahrung in meinen Daten steht, aber durch verwandte Techs (.NET bzw. VBA) abgedeckt ist, formuliere es als \"fundiertes Grundverständnis“ oder „Transferwissen“, niemals als „aktuelle Expertenkenntnisse\".
 - Länge: ca. 3 kurze Absätze + Schluss, nicht länger
 - Gib NUR den fertigen Anschreiben-Text zurück, keine Erklärungen, keine Kommentare
+
+
+Eventuell verwenden, wenn das Thema KI ist:
+Sag: „Ich bin ein Praktiker. Ich nutze modernste KI-Tools, um hocheffizienten Code zu schreiben und abzusichern.
+Ich kenne die Konzepte (wie Docker oder RAG), aber mein Fokus liegt auf der schnellen, funktionierenden Umsetzung und Qualitätssicherung durch Tests, nicht auf akademischen Definitionen.“
+Das ist heute eine legitime und gesuchte Arbeitsweise.
+
 
 MEINE DATEN (aus meinem Lebenslauf)
 ${CV_DATA}

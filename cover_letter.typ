@@ -6,6 +6,9 @@
 // Überschreibe header_quote für Anschreiben
 #let metadata = metadata + (lang: metadata.lang + (de: metadata.lang.de + (header_quote: "")))
 
+#let metadata = metadata + (lang: metadata.lang + (de: metadata.lang.de + (cv_footer: "Anschreiben")))
+
+
 #show: cv.with(
     metadata,
     profile-photo: image("assets/avatar.png"),
@@ -15,7 +18,7 @@
 
 // CLI-Input
 #let body_file = sys.inputs.at("file", default: "anschreiben.txt")
-#let body_text = read(body_file)
+#let body_text = read(body_file).replace("#", "\#")
 
 // Briefinhalt mit Formatierung
 #set text(size: 11pt)

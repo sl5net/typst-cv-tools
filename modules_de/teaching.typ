@@ -16,6 +16,18 @@
 )
 
 #cv-entry(
+  title: [Gastreferent (Linux-Tag)],
+  location: [Reutlingen],
+  society: [Stadtbücherei Reutlingen],
+  date: [April 2026],
+  description: list(
+    [Fachvortrag und Live-Präsentation zum Thema "Moderne Spracherkennung und KI-Assistenz"],
+    [Vorstellung der lokal betriebenen Open-Source-Lösung *sl5net Aura* im Kontext von Datenschutz und Barrierefreiheit]
+  ),
+  tags: ("KI", "OpenSource", "Linux", "Spracherkennung", "Vortrag"),
+)
+
+#cv-entry(
   title: [Langjähriger IT-Trainer für komplexe Themenbereiche],
   society: [Future Training Reutlingen & Consulting GmbH / VHS Heidelberg],
   location: [Reutlingen & Heidelberg],
