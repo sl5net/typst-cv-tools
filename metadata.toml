@@ -60,7 +60,7 @@ subject = ''
 
     # Decide if you want to inject keywords or not
     inject_keywords = true
-    injected_keywords_list = ["Data Analyst", "GCP", "Python", "SQL", "Tableau"]
+    injected_keywords_list = ["Data Analyst", "Python", "SQL", "Tableau"]
 
 [personal]
     first_name = "Sebastian"

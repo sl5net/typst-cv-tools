@@ -5,16 +5,31 @@
 
 #cv-entry(
   title: [Inhaber & Lead-Entwickler],
-  society: [SL5.de – Professionelle Spracherkennung],
+  society: [SL5.de – AI & Automation Solutions],
   date: [2001 – heute],
   location: [Wannweil, DE],
   description: list(
-    [*Tech-Sprint (11/2025):* Implementierung lokaler RAG-KI-Infrastruktur (Ollama/Llama 3) mit Bash-Automatisierung.],
-    [*Security:* Konzeption einer DSGVO-konformen "Secure Clipboard Bridge" (Python/IPC) zur isolierten Datenverarbeitung.],
-    [*Performance:* Reduktion der Latenz auf 0,05s durch Multi-Layer-Caching (SQLite & In-Memory Hashing).],
-    [*Architektur:* Entwicklung einer plattformunabhängigen DSL zur Workflow-Steuerung.]
+    [*Aura-Core: Hybride Offline-KI-Architektur (Python/Ollama):*],
+    list(
+      [Entwicklung einer kaskadierenden Rule-Engine: Deterministische RegEx-Steuerung für 0,05s Latenz mit intelligentem LLM-Fallback (Ollama/Llama 3).],
+      [Implementierung von "Dynamic Script Execution": Regeln triggern Python-Skripte für API-Calls und System-Aktionen (on_match_exec).],
+      [Integrierter Auto-Repair-Modus: Post-Transcription-Korrektur mittels LanguageTool und Fuzzy-Matching-Thresholds.],
+      [Security-by-Design: 100% lokale Datenverarbeitung (Offline-Wikipedia/Bibel-Suche) und passwortgeschützte Integrity-First-Verschlüsselung der Rule-Maps.],
+      [*Barrierefreiheit & UX:* spezialisiertes Interfaces ("Oma-Modus", Terminal-Mode) zur inklusiven Nutzung],
+      [*DevOps & CI/CD:* Automatisierte Multi-Plattform (Linux, macOS, Windows) mittels Bash und GitHub Workflows.]
+    ),
+    [*Fokus Web- & System-Integration (2013 – 2022):*],
+    list(
+      [Realisierung von Schnittstellenlösungen für mittelständische Unternehmen (Python, VBA, AutoHotkey).],
+      [Konzeption robuster Software-Architekturen für webbasierte Fachanwendungen.]
+    ),
+    [*Fokus Fullstack-Entwicklung (2001 – 2012):*],
+    list(
+      [Entwicklung und langfristige Pflege skalierbarer Web-Applikationen auf Basis von PHP, SQL und Java und JS],
+      [Modernisierung von Legacy-Code-Basen (PHP 8.1+) und Datenbank-Migrationen.]
+    )
   ),
-  tags: ("Python", "AI", "RAG", "LLM", "Architecture", "Bash", "Security")
+  tags: ("Python", "AI", "RAG", "LLM", "Architecture", "Bash", "Security", "Hybrid-AI", "Privacy", "Automation","JS", "PHP", "SQL")
 )
 
 #cv-entry(
@@ -33,7 +48,7 @@
   title: [Software-Entwickler (Scrum-Team)],
   society: [GetMomo Financial GmbH],
   date: [01/2022 – 05/2022],
-  location: [Berlin, DE],
+  location: [Remote (Berlin, DE)],
   description: list(
     [Mitarbeit im 9-köpfigen Scrum-Team an Fintech-Lösungen.],
     [Übernahme voller Verantwortung für zugewiesene Aufgaben in einem agilen Umfeld.]
@@ -53,6 +68,8 @@
   ),
   tags: ("Java", "Scrum", "Jira")
 )
+
+
 
 
 #cv-entry(

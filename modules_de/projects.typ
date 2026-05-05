@@ -17,28 +17,31 @@
 )
 
 #cv-entry(
-  title: [SL5 Aura Service],
-  society: [SL5.de],
-  date: [2024 - heute],
-  location: [GitHub],
+  title: [SL5 Aura Service – Hybrides KI-Framework],
+  society: [GitHub.com/SL5net],
+  date: [2024 – heute],
+  location: [Open Source],
   description: list(
-    [Systemweite Offline-Sprache zu Befehlen oder Text, steckbares System],
-    [Offline und privat: 100 % lokal. Keine Daten verlassen jemals Ihren Computer.],
-    [Dynamic Scripting Engine],
+    [Entwicklung eines latenzoptimierten Frameworks für hybride, systemweite Sprachsteuerung oder über Terminal (Offline-First).],
+    [Architektur: Kaskadierende Logik aus deterministischer RegEx-Engine und lokalem LLM-Fallback (RAG).],
+    [Agentic Coding: Integrierte Dynamic Scripting Engine zur Ausführung komplexer System-Workflows via Sprache oder Terminal],
+    [Inklusion & Datenschutz: 100% lokale Datenhoheit; spezialisierte Interfaces für Barrierefreiheit (Oma-Modus).],
+    [Repository: #link("https://sl5net.github.io/SL5-aura-service")[sl5net.github.io/SL5-aura-service]]
   ),
-  tags: ("AI", "OpenSource", "PHP", "rule-engine", "scripting-engine", "assistive-technology", "voice-assistant")
+  tags: ("AI", "Python", "RAG", "LLM", "Agentic-AI", "Assistive-Tech", "Rule-Engine", "OpenSource", "Python", "rule-engine", "scripting-engine", "assistive-technology", "voice-assistant")
 )
+
 
 #cv-entry(
   title: [PregContentFinder (PHP)],
   society: [SL5.de],
   date: [2001 - heute],
-  location: [GitHub],
+  location: [GitHub.com/SL5net],
   description: list(
     [Robuste, über 20 Jahre weiterentwickelte PHP-Klasse zur Analyse und Manipulation tief verschachtelter Textstrukturen, modernisiert für PHP 8.1+ und via Composer verfügbar.],
     [Zeigt Expertise in Algorithmen und langfristiger Code-Pflege.]
   ),
-  tags: ("AI", "OpenSource", "PHP")
+  tags: ("PHP", "Regex", "Algorithms", "Legacy-Modernization", "Composer")
 )
 
 #cv-entry(

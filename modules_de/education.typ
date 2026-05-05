@@ -17,7 +17,7 @@
     [2002 – 2003: Wissenschaftliches Rechnen | Universität Heidelberg],
     [Studienschwerpunkte: Software-Qualitätssicherung, Anwendungsentwicklung, Datenbanken]
   ),
-  tags: ("edu_it", "IT", "Architecture", "education","IBM","SAP","Matlab","Java","C++","DB2","PostgreSQL")
+  tags: ("edu_it","FH","UNI","IT","Architecture","education","IBM","SAP","Matlab","Java","C++","DB2","PostgreSQL")
 )
 
 #cv-entry(

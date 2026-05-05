@@ -10,7 +10,7 @@
   society: [VHS Tübingen],
   date: [2026 - Heute],
   description: list(
-    [Konzeption und Durchführung von Kursen für Einsteiger],[Vermittlung von Grundlagen in Python und Prompt Engineering]
+    [Fokus auf angewandte KI],[Prompt Engineering für Nicht-Entwickler],[Automatisierung mit Python]
   ),
   tags: ("KI", "Python", "regex", "Dozent", "Lehre"),
 )
@@ -33,19 +33,23 @@
   location: [Reutlingen & Heidelberg],
   date: [2001 - 2021],
   description: list(
-    [Konzeption und Durchführung von Kursen für Einsteiger],[Vermittlung von Grundlagen in Python und Prompt Engineering]
+    [Vermittlung von Fullstack-Grundlagen (Java, JS, PHP, C++, SQL, MySQL) ],[Vermittlung von Grundlagen in Python]
   ),
   tags: ("SQL", "Java", "PHP", "JS", "Python"),
 )
+
+#cv-section("Community & Expertise")
 
 #cv-entry(
-  title: [Community & Coaching],
-  society: [erweiterte Community-Rechte zur Qualitätssicherung],
+  title: [Anerkannter Experte & Trusted User],
+  society: [Stack Overflow (sl5net)],
+  date: [2012 – heute],
   location: [Online],
-  date: [2024],
   description: list(
-    [Anerkannte Expertise auf *Stack Overflow sl5net*(https://stackoverflow.com/users/2891692/sl5net), belegt durch erweiterte Community-Rechte zur Qualitätssicherung]
+    [*Globaler Impact:* Über 530.000 erreichte Entwickler durch technische Problemlösungen (Top 10% in Kern-Tags wie Regex und Automation).],
+    [*Fachliche Schwerpunkte:* komplexer Textanalyse (Regex), Linux-Systemadministration, systemübergreifender Automatisierung.],
+    [*Qualitätssicherung:* Inhaber erweiterter Community-Rechte ("Socratic" & "Trusted User") zur Moderation und Qualitätssicherung der Plattform.],
+    [Profil: #link("https://stackoverflow.com/users/2891692/sl5net")[stackoverflow.com/sl5net]]
   ),
-  tags: ("SQL", "Java", "PHP", "JS", "Python"),
+  tags: ("Regex", "Linux", "Automation", "Python", "Problem-Solving","SQL", "Java", "PHP", "JS", "Python")
 )
-

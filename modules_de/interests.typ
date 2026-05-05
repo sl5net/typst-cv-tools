@@ -18,6 +18,9 @@
   society: [Vertical Moves],
   date: [2008 – 2017],
   location: [Heidelberg, DE],
-  description: list([Zertifizierter DAV Kletterbetreuer. Coaching von Gruppen mit Fokus auf Vertrauen und Motivation.]),
-  tags: ("Coaching", "Social")
+  description: list(
+    [*Sicherheitsverantwortung:* Zertifizierter DAV Kletterbetreuer. Coaching von Gruppen mit Fokus auf Vertrauen und Motivation.],
+    [*Didaktik:* Vermittlung komplexer Sicherungstechniken an heterogene Gruppen – eine direkte Parallele zum Mentoring technischer Teams.]
+    ),
+  tags: ("Coaching", "Social", "Safety-First", "Responsibility")
 )
