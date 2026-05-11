@@ -1,6 +1,14 @@
 #import "helpers.typ": *
 #import "@preview/brilliant-cv:3.1.2": cv
 
+#let metadata = metadata
+#{
+  metadata.personal.info.github = "GitHub: " + metadata.personal.info.github
+  metadata.personal.info.linkedin = "LinkedIn: " + metadata.personal.info.linkedin
+  metadata.personal.info.email = "E-Mail: " + metadata.personal.info.email
+  metadata.personal.info.gitlab = "GitLab: " + metadata.personal.info.gitlab
+  metadata.personal.info.homepage = "Web: " + metadata.personal.info.homepage
+}
 #show: cv.with(metadata, profile-photo: image("assets/avatar.png"))
 
 #let lang = metadata.language

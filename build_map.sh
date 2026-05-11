@@ -1,4 +1,5 @@
 #!/bin/bash
+# build_map.sh
 clear;
 
 export LC_ALL=de_DE.UTF-8
@@ -16,6 +17,9 @@ export LANG=de_DE.UTF-8
 # ║  Aufruf:                                                             ║
 # ║  ./build_map.sh                        ← alles aus job_ad.txt       ║
 # ║  ./build_map.sh "Java|React|Docker"    ← Buzzwords als Argument     ║
+# ║                                                                      ║
+# ║  hilfreiche Befehle:                                                             # tree -I "exports|.git|node_modules" -P "*.typ" --prune
+# grep -rn "LinkedIn\|GitHub" --include="*.typ" . | grep -v ".venv" | grep -v "venv" | grep -v "__pycache__" | grep -v "/_" | grep -v "/exports"
 # ╚══════════════════════════════════════════════════════════════════════╝
 
 # ── Konfiguration ──────────────────────────────────────────────────────
@@ -231,6 +235,8 @@ ${JOB_AD_HEAD}" 30)
     | grep -oP '\{.+\}' \
     | head -1)
 
+
+
   # Fallback: let jq find valid JSON anywhere in the output
   if [ -z "$META_JSON" ]; then
     META_JSON=$(printf '%s' "$META_RAW" | jq -Rs 'scan("\\{[^{}]+\\}")' 2>/dev/null \
@@ -246,10 +252,10 @@ ${JOB_AD_HEAD}" 30)
   fi
 
   if [ -n "$META_JSON" ]; then
+
     RAW_COMPANY=$(echo "$META_JSON"  | jq -r '.company   // empty' 2>/dev/null)
     RAW_TITLE=$(echo "$META_JSON"    | jq -r '.job_title // empty' 2>/dev/null)
     RAW_CONTACT=$(echo "$META_JSON"  | jq -r '.contact   // empty' 2>/dev/null)
-
     [ -n "$RAW_COMPANY" ]  && COMPANY=$(printf '%s' "$RAW_COMPANY"       | sed 's/[^a-zA-Z0-9äöüÄÖÜß _&+.-]//g' | sed 's/[[:space:]]/_/g' | cut -c1-40)
     [ -n "$RAW_TITLE" ]    && DB_JOBTITEL=$(printf '%s' "$RAW_TITLE"  | cut -c1-80)
     [ -n "$RAW_CONTACT" ]  && DB_KONTAKT=$(printf '%s' "$RAW_CONTACT" | cut -c1-50)
@@ -257,6 +263,10 @@ ${JOB_AD_HEAD}" 30)
     log_ok "Firma:          $COMPANY"
     log_ok "Jobtitel:       $DB_JOBTITEL"
     log_ok "Ansprechpartner: $DB_KONTAKT"
+
+
+
+
   else
     log_warn "JSON-Parsing fehlgeschlagen – manuelle Eingabe."
   fi
@@ -271,10 +281,13 @@ fi
 if [ -z "$DB_JOBTITEL" ]; then
   read -rp "  Jobtitel:   " DB_JOBTITEL
 fi
-if [ -z "$DB_KONTAKT" ] || [ "$DB_KONTAKT" = "Unbekannt" ]; then
-  read -rp "  Ansprechpartner/in: " DB_KONTAKT
-  [ -z "$DB_KONTAKT" ] && DB_KONTAKT="Unbekannt"
-fi
+
+
+SAFE_TITLE=$(echo "${DB_JOBTITEL:-Experte}" | sed 's/[^a-zA-Z0-9]/_/g' | tr -s '_' | sed 's/^_//;s/_$//' | cut -c1-50)
+FINAL_CV_NAME="Lebenslauf_Sebastian_Lauffer_${SAFE_TITLE}.pdf"
+log_info "Ziel-Dateiname: $FINAL_CV_NAME"
+
+
 
 # ══════════════════════════════════════════════════════════════════════
 # Warte auf Lebenslauf-Kompilierung (falls noch nicht fertig)
@@ -328,6 +341,14 @@ MAPPE_DIR="exports/${YEAR_MONTH}/${COMPANY}"
 mkdir -p "$MAPPE_DIR"
 log_step "Schritt 4: Bewerbungsmappe → $MAPPE_DIR"
 
+
+if [ -z "$DB_KONTAKT" ] || [ "$DB_KONTAKT" = "Unbekannt" ]; then
+  read -rp "  Ansprechpartner/in: " DB_KONTAKT
+  [ -z "$DB_KONTAKT" ] && DB_KONTAKT="Unbekannt"
+fi
+
+
+
 # ══════════════════════════════════════════════════════════════════════
 # SCHRITT 5: Anschreiben kompilieren TODO must use txt from MAPPE_DIR
 # @ in E-Mail-Adressen für Typst escapen
@@ -379,10 +400,15 @@ fi
 log_step "Schritt 6: Lebenslauf in Mappe kopieren"
 
 CV_SOURCE="exports/${TAGS_CLEAN}/${CV_FILENAME}"
-CV_DEST="${MAPPE_DIR}/${CV_FILENAME}"
+CV_DEST="${MAPPE_DIR}/${FINAL_CV_NAME}"
+#CV_DEST="${MAPPE_DIR}/${CV_FILENAME}"
+
+echo "DEBUG: Quelle: $CV_SOURCE"
+echo "DEBUG: Ziel:   $CV_DEST"
 
 if [ -f "$CV_SOURCE" ]; then
   cp "$CV_SOURCE" "$CV_DEST"
+  cp "$CV_SOURCE" "exports/${TAGS_CLEAN}/${FINAL_CV_NAME}"
   log_ok "Lebenslauf kopiert: $CV_DEST"
   log_info "Quelle: $CV_SOURCE"
 else
@@ -420,10 +446,10 @@ Der Text wird direkt als Typst-Markup kompiliert. Exakte Regeln:
 ZEILENUMBRÜCHE: Jede Zeile im Adressblock MUSS mit einem Backslash enden: \\
 Ohne \\ am Zeilenende werden aufeinanderfolgende Zeilen zu einer einzigen Zeile!
 
-KURSIV: *Text* (für Adressblock)
+KURSIV: *Text* (für Adressblock(ist ohne meine Adresse) und Jobtitel aus Stellenanzeige im Betreff)
 NICHT verwenden: #, **, __, HTML-Tags, Markdown-Überschriften
 
-Der Adressblock muss EXAKT so aussehen (Backslash \\ am Ende jeder Zeile!):
+Der Adressblock(ist ohne meine Adresse) muss EXAKT so aussehen (Backslash \\ am Ende jeder Zeile!):
 *[Firmenname]* \\
 *[Ansprechpartner falls bekannt]* \\
 *[PLZ Ort]*
@@ -444,10 +470,12 @@ TON & STIL
 
 
 Eventuell verwenden, wenn das Thema KI ist:
-Sag: „Ich bin ein Praktiker. Ich nutze modernste KI-Tools, um hocheffizienten Code zu schreiben und abzusichern.
-Ich kenne die Konzepte (wie Docker oder RAG), aber mein Fokus liegt auf der schnellen, funktionierenden Umsetzung und Qualitätssicherung durch Tests, nicht auf akademischen Definitionen.“
-Das ist heute eine legitime und gesuchte Arbeitsweise.
 
+Falls die Stelle eher operativ/Hands-on ist:
+„Ich bin ein Praktiker. Ich nutze modernste KI-Tools, um hocheffizienten Code zu schreiben und abzusichern. Mein Fokus liegt auf der schnellen, funktionierenden Umsetzung und Qualitätssicherung durch Tests, nicht auf akademischen Definitionen.“
+
+Falls die Stelle Senior- oder Architektur-Fokus hat:
+„Ich fokussiere mich auf die Intention und die Architektur. Dank moderner KI-Unterstützung verbringe ich weniger Zeit mit dem Schreiben von Standard-Syntax und mehr Zeit mit der Logik, der Testabdeckung und der Systemsicherheit. Das macht mich als Entwickler extrem effizient, ohne die architektonische Qualität zu opfern.“
 
 MEINE DATEN (aus meinem Lebenslauf)
 ${CV_DATA}
@@ -543,7 +571,8 @@ CV_LATEST=$(find exports/ -name "$CV_FILENAME" -not -path "*/20??-??/*" \
   -printf "%T@ %p\n" | sort -rn | head -1 | cut -d' ' -f2-)
 
 if [ -f "$CV_LATEST" ]; then
-  cp "$CV_LATEST" "${MAPPE_DIR}/${CV_FILENAME}"
+  # cp "$CV_LATEST" "${MAPPE_DIR}/${CV_FILENAME}"
+  cp "$CV_LATEST" "${MAPPE_DIR}/${FINAL_CV_NAME}"
   log_ok "Lebenslauf aktualisiert: $(basename $CV_LATEST) → $MAPPE_DIR"
   log_info "Quelle: $CV_LATEST"
 else
