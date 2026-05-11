@@ -287,6 +287,14 @@ else
   # 3-stufiges Matching
   SORTED_UNIQUE=$(resolve_tokens "$RAW_UNIQUE")
 
+  # Default-Tags NACH dem Matching hinzufügen
+  SORTED_UNIQUE="${SORTED_UNIQUE}|it|edu|lead|job"
+  SORTED_UNIQUE=$(echo "$SORTED_UNIQUE" | tr '|' '\n' | sort -u | tr '\n' '|' | sed 's/|$//; s/^|//')
+
+
+
+  echo -e "${C_GREEN} Finale Tokens (mit Defaults):${C_RESET} $SORTED_UNIQUE"
+
   echo -e "${C_GREEN}✅ Finale Tokens:${C_RESET} $SORTED_UNIQUE"
   echo ""
 

@@ -78,6 +78,8 @@ expand_buzzwords() {
 }
 
 
+
+
 # ══════════════════════════════════════════════════════════════════════
 # HILFSFUNKTION: ollama aufrufen
 # ══════════════════════════════════════════════════════════════════════
@@ -184,10 +186,12 @@ fi
 BUZZWORDS=$(expand_buzzwords "$BUZZWORDS")
 
 # Default-Tags hinzufügen, die immer im CV erscheinen sollen
-DEFAULT_TAGS="job|it|edu|lead|Architecture|AI"
-BUZZWORDS="${BUZZWORDS}|${DEFAULT_TAGS}"
+# DEFAULT_TAGS="job|it|edu|lead|Architecture|AI"
+# BUZZWORDS="${BUZZWORDS}|${DEFAULT_TAGS}"
 
 # Duplikate entfernen und Formatierung bereinigen
+
+
 BUZZWORDS=$(echo "$BUZZWORDS" | tr '|' '\n' | sort -u | tr '\n' '|' | sed 's/|$//; s/^|//')
 
 log_info "Erweitert: $BUZZWORDS"
@@ -195,6 +199,11 @@ log_info "Erweitert: $BUZZWORDS"
 
 
 [ -z "$BUZZWORDS" ] && { log_err "Keine Buzzwords – Abbruch."; exit 1; }
+
+
+# BUZZWORDS=$(echo "$BUZZWORDS" | tr '|' '\n' | sort -u | tr '\n' '|' | sed 's/|$//')
+
+
 
 # ══════════════════════════════════════════════════════════════════════
 # SCHRITT 2: Lebenslauf kompilieren
