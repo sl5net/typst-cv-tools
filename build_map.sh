@@ -18,8 +18,10 @@ export LANG=de_DE.UTF-8
 # ║  ./build_map.sh                        ← alles aus job_ad.txt       ║
 # ║  ./build_map.sh "Java|React|Docker"    ← Buzzwords als Argument     ║
 # ║                                                                      ║
-# ║  hilfreiche Befehle:                                                             # tree -I "exports|.git|node_modules" -P "*.typ" --prune
-# grep -rn "LinkedIn\|GitHub" --include="*.typ" . | grep -v ".venv" | grep -v "venv" | grep -v "__pycache__" | grep -v "/_" | grep -v "/exports"
+# ║  hilfreiche Befehle:
+# ║
+# ║  tree -I "exports|.git|node_modules" -P "*.typ" --prune
+# ║  grep -rn "LinkedIn\|GitHub" --include="*.typ" . | grep -v ".venv" | grep -v "venv" | grep -v "__pycache__" | grep -v "/_" | grep -v "/exports"
 # ╚══════════════════════════════════════════════════════════════════════╝
 
 # ── Konfiguration ──────────────────────────────────────────────────────
@@ -178,7 +180,16 @@ else
   read -rp "  Buzzwords manuell eingeben (z.B. Java|React|Docker): " BUZZWORDS
 fi
 
+
 BUZZWORDS=$(expand_buzzwords "$BUZZWORDS")
+
+# Default-Tags hinzufügen, die immer im CV erscheinen sollen
+DEFAULT_TAGS="job|it|edu|lead|Architecture|AI"
+BUZZWORDS="${BUZZWORDS}|${DEFAULT_TAGS}"
+
+# Duplikate entfernen und Formatierung bereinigen
+BUZZWORDS=$(echo "$BUZZWORDS" | tr '|' '\n' | sort -u | tr '\n' '|' | sed 's/|$//; s/^|//')
+
 log_info "Erweitert: $BUZZWORDS"
 
 
@@ -567,8 +578,13 @@ fi
 # CV_LATEST=$(find exports/ -name "$CV_FILENAME" -not -path "*/20??-??/*" \
 #  -printf "%T@ %p\n" | sort -rn | head -1 | cut -d' ' -f2-)
 
-CV_LATEST=$(find exports/ -name "$CV_FILENAME" -not -path "*/20??-??/*" \
-  -printf "%T@ %p\n" | sort -rn | head -1 | cut -d' ' -f2-)
+# alt:
+# CV_LATEST=$(find exports/ -name "$CV_FILENAME" -not -path "*/20??-??/*" \
+#  -printf "%T@ %p\n" | sort -rn | head -1 | cut -d' ' -f2-)
+
+# neu:
+CV_LATEST="exports/${TAGS_CLEAN}/${CV_FILENAME}"
+
 
 if [ -f "$CV_LATEST" ]; then
   # cp "$CV_LATEST" "${MAPPE_DIR}/${CV_FILENAME}"

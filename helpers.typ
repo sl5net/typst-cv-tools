@@ -7,7 +7,7 @@
 #let is-visible(tags) = {
   if filter-input == "" { return true }
   let tag-list = if type(tags) == array { tags } else if type(tags) == str { (tags,) } else { () }
-  tag-list.any(t => str(t).match(regex(filter-input)) != none)
+  tag-list.any(t => str(t).match(regex("(?i)(?:^|\\b)(?:" + filter-input + ")(?:\\b|$)")) != none)
 }
 
 // Gefilterte Sektion
