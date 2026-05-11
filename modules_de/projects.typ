@@ -26,7 +26,8 @@
     [Architektur: Kaskadierende Logik aus deterministischer RegEx-Engine und lokalem LLM-Fallback (RAG).],
     [Agentic Coding: Integrierte Dynamic Scripting Engine zur Ausführung komplexer System-Workflows via Sprache oder Terminal],
     [Inklusion & Datenschutz: 100% lokale Datenhoheit; spezialisierte Interfaces für Barrierefreiheit (Oma-Modus).],
-    [Repository: #link("https://sl5net.github.io/SL5-aura-service")[sl5net.github.io/SL5-aura-service]]
+    [*Connectivity:* Hybride Bereitstellung über Hetzner-Gateway (Port 8831) für globale API-Erreichbarkeit bei lokaler Datenhoheit.],
+    [Repository: #link("https://github.com/sl5net/SL5-aura-service")[GitHub] | #link("https://sl5net.github.io/SL5-aura-service")[Dokumentation]]
   ),
   tags: ("AI", "Python", "RAG", "LLM", "Agentic-AI", "Assistive-Tech", "Rule-Engine", "OpenSource", "Python", "rule-engine", "scripting-engine", "assistive-technology", "voice-assistant")
 )

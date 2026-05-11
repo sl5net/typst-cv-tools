@@ -12,7 +12,7 @@
   description: list(
     [Fokus auf angewandte KI],[Prompt Engineering für Nicht-Entwickler],[Automatisierung mit Python]
   ),
-  tags: ("KI", "Python", "regex", "Dozent", "Lehre"),
+  tags: ("KI", "Python", "RegEx", "Dozent", "Lehre"),
 )
 
 #cv-entry(
@@ -46,7 +46,7 @@
   date: [2012 – heute],
   location: [Online],
   description: list(
-    [*Globaler Impact:* Über 530.000 erreichte Entwickler durch technische Problemlösungen (Top 10% in Kern-Tags wie Regex und Automation).],
+    [*Globaler Impact:* Über 530.000 erreichte Entwickler durch technische Problemlösungen (Top 10% in Kern-Tags wie RegEx und Automation).],
     [*Fachliche Schwerpunkte:* komplexer Textanalyse (Regex), Linux-Systemadministration, systemübergreifender Automatisierung.],
     [*Qualitätssicherung:* Inhaber erweiterter Community-Rechte ("Socratic" & "Trusted User") zur Moderation und Qualitätssicherung der Plattform.],
     [Profil: #link("https://stackoverflow.com/users/2891692/sl5net")[stackoverflow.com/sl5net]]

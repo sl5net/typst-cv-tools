@@ -5,6 +5,13 @@
 #cv-section("Kenntnisse & Fähigkeiten", tags: ("IT", "job", "Java", "Python", "SQL", "DevOps", "Lehre"))
 
 #cv-skill-with-level(
+  type: [KI & Datenanalyse],
+  level: 4,
+  info: [Feature Engineering #h-bar() Data Engineering #h-bar() LLMs (RAG) #h-bar() Tableau #h-bar() Python (Pandas, NumPy)],
+  tags: ("Python", "AI", "Data Engineering", "IT")
+)
+
+#cv-skill-with-level(
   type: [Programmierung],
   level: 4,
   info: [Python #h-bar() Java #h-bar() SQL (T-SQL, PL/SQL) #h-bar() PHP #h-bar() JavaScript #h-bar() TypeScript],
@@ -15,14 +22,14 @@
   type: [Frameworks & Tech],
   level: 3,
   info: [Spring #h-bar() Node.js #h-bar() React #h-bar() Angular #h-bar() REST APIs #h-bar() .NET #h-bar() VBA],
-  tags: ("Java", "JS", "IT")
+  tags: ("Java", "JS", "IT", "API")
 )
 
 #cv-skill-with-level(
   type: [DevOps & Infrastruktur],
   level: 3,
-  info: [Docker #h-bar() Kubernetes #h-bar() CI/CD #h-bar() Jenkins #h-bar() Git #h-bar() SVN #h-bar() Linux #h-bar() UNIX],
-  tags: ("DevOps", "CI", "IT")
+  info: [Docker #h-bar() Cloud-Hosting (AWS EC2, Netlify – bedarfsorientiert) #h-bar() Kubernetes (Grundkenntnisse 3-Tier-Orchestrierung) #h-bar() CI/CD (GitHub Actions, Netlify) #h-bar() Jenkins #h-bar() Git #h-bar() SVN #h-bar() Linux],
+  tags: ("DevOps", "CI", "IT", "Infrastructure-as-Code", "Security" , "OpenVPN")
 )
 
 #cv-skill-with-level(
@@ -31,7 +38,6 @@
   info: [Agile (Scrum, Kanban) #h-bar() Jira #h-bar() Confluence #h-bar() Architektur-Design #h-bar() Projektmanagement],
   tags: ("Scrum", "IT", "Lehre")
 )
-
 
 #cv-skill-with-level(
   type: [Agentic Workflows],
@@ -44,7 +50,7 @@
   type: [Software & Tools],
   level: 3,
   info: [Visual Studio #h-bar() Figma (UI/UX) #h-bar() ERP-Systeme #h-bar() MS Office (Excel + OpenOffice)],
-  tags: ("IT", "job","OpenSource")
+  tags: ("Scrum", "IT", "job","OpenSource")
 )
 
 #cv-skill(

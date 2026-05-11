@@ -10,7 +10,16 @@
   date: [Langjährig],
   location: [Offline und Online],
   description: list([Schachspieler und Lichess Patron mit einer Wertung von ca. 2000 Elo im Fernschach.]),
-  tags: ("Social", "Strategie", "job")
+  tags: ("Social", "Strategie", "job", "it")
+)
+
+#cv-entry(
+  title: [Zertifizierter DAV Kletterbetreuer],
+  society: [Deutscher Alpenverein (DAV)],
+  date: [2016],
+  location: [Baden-Württemberg],
+  description: [6-tägige Fachausbildung unter der Leitung von Tilmann Hepp. Qualifikation zur Vermittlung von Sicherungstechniken und Übernahme von Sicherheitsverantwortung (Anforderungsniveau: Grad 7 UIAA / 6b French).],
+  tags: ("Social", "lead", "edu", "it")
 )
 
 #cv-entry(
@@ -22,5 +31,5 @@
     [*Sicherheitsverantwortung:* Zertifizierter DAV Kletterbetreuer. Coaching von Gruppen mit Fokus auf Vertrauen und Motivation.],
     [*Didaktik:* Vermittlung komplexer Sicherungstechniken an heterogene Gruppen – eine direkte Parallele zum Mentoring technischer Teams.]
     ),
-  tags: ("Coaching", "Social", "Safety-First", "Responsibility")
+  tags: ("Coaching", "Social", "Safety-First", "Responsibility", "it")
 )
