@@ -15,7 +15,7 @@
   type: [Programmierung],
   level: 4,
   info: [Python #h-bar() Java #h-bar() SQL (T-SQL, PL/SQL) #h-bar() PHP #h-bar() JavaScript #h-bar() TypeScript],
-  tags: ("Python", "Java", "SQL", "PHP", "JS", "IT","OpenSource")
+  tags: ("Python", "Java", "SQL", "PHP", "JS", "IT","OpenSource", "Codeberg: seeh")
 )
 
 #cv-skill-with-level(
@@ -35,7 +35,7 @@
 #cv-skill-with-level(
   type: [Methodik & Management],
   level: 3,
-  info: [Agile (Scrum, Kanban) #h-bar() Jira #h-bar() Confluence #h-bar() Architektur-Design #h-bar() Projektmanagement],
+  info: [Agile (Scrum, Kanban) #h-bar() Jira  #h-bar() YouTrack #h-bar() Confluence #h-bar() Architektur-Design #h-bar() Projektmanagement],
   tags: ("Scrum", "IT", "Lehre")
 )
 

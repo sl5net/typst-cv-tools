@@ -16,6 +16,15 @@
 )
 
 #cv-entry(
+  title: [SL5small-Einrückungsstil],
+  society: [Wikipedia (archiviert)],
+  date: [2017],
+  location: [web.archive.org],
+  description: [Eigener Einrückungsstil für AutoHotkey, dokumentiert in der deutschen Wikipedia. #link("https://web.archive.org/web/20171229200102/https:/de.wikipedia.org/wiki/Einr%C3%BCckungsstil#SL5small-Stil")[Archiv-Link]],
+  tags: ("OpenSource", "it", "job")
+)
+
+#cv-entry(
   title: [Legacy JavaScript Algorithms and Data Structures],
   society: [freeCodeCamp.org],
   date: [2023],
