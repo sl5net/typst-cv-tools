@@ -302,8 +302,30 @@ if [ -z "$DB_JOBTITEL" ]; then
   read -rp "  Jobtitel:   " DB_JOBTITEL
 fi
 
+# alt:
+# SAFE_TITLE=$(echo "${DB_JOBTITEL:-Experte}" | sed 's/[^a-zA-Z0-9]/_/g' | tr -s '_' | sed 's/^_//;s/_$//' | cut -c1-50)
 
-SAFE_TITLE=$(echo "${DB_JOBTITEL:-Experte}" | sed 's/[^a-zA-Z0-9]/_/g' | tr -s '_' | sed 's/^_//;s/_$//' | cut -c1-50)
+# untested:
+#SAFE_TITLE=$(printf '%s' "${DB_JOBTITEL:-Experte}" \
+#  | sed 's/[^a-zA-Z0-9äöüÄÖÜß _-]//g' \
+#  | sed 's/[[:space:]]/_/g' \
+#  | sed 's/_\(.\)_\?$/_/; s/__*$//; s/_$//' \
+#  | sed 's/_\b.\b//g' \
+#  | tr -s '_' \
+#  | cut -c1-60)
+
+# neu 12.5.'26 06:13 Tue:
+#fix: strip single-char suffixes from SAFE_TITLE in PDF filename
+#Removes gender suffixes like _m_f_x or _m_w_d from job title
+#used in PDF filename (e.g. Senior_Engineer_m_f_x -> Senior_Engineer)."
+SAFE_TITLE=$(printf '%s' "${DB_JOBTITEL:-Experte}" \
+  | sed 's/[^a-zA-Z0-9äöüÄÖÜß _-]//g' \
+  | sed 's/[[:space:]]/_/g' \
+  | tr -s '_' \
+  | sed 's/_.$//; s/_.$//; s/_.$//; s/_$//' \
+  | cut -c1-60)
+
+
 FINAL_CV_NAME="Lebenslauf_Sebastian_Lauffer_${SAFE_TITLE}.pdf"
 log_info "Ziel-Dateiname: $FINAL_CV_NAME"
 

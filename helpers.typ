@@ -1,5 +1,5 @@
 #import "@preview/brilliant-cv:3.1.2": cv-entry as org-entry, cv-section as org-section, h-bar, cv-honor as org-honor, cv-skill as org-skill, cv-skill-with-level as org-skill-level
-
+// helpers.typ
 #let metadata = toml("./metadata.toml")
 #let filter-input = sys.inputs.at("filter", default: "")
 
